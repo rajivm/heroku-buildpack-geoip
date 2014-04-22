@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# always install
+exit 0
