@@ -44,9 +44,9 @@ if [ ! -f $GEOLITECITY_FILE ]; then
     mv $GEOLITECITY_FILE "$BUILD_DIR/$VENDORED_GEOIP/share/$GEOLITECITY_FILE"
 fi
 
-set-default-env LIBRARY_PATH "\$LIBRARY_PATH:$APP_GEOIP/lib"
-set-default-env LD_LIBRARY_PATH "\$LD_LIBRARY_PATH:$APP_GEOIP/lib"
-set-default-env CPATH "\$CPATH:$APP_GEOIP/include"
+set-env LIBRARY_PATH "\$LIBRARY_PATH:$APP_GEOIP/lib"
+set-env LD_LIBRARY_PATH "\$LD_LIBRARY_PATH:$APP_GEOIP/lib"
+set-env CPATH "\$CPATH:$APP_GEOIP/include"
 
 set-env GEOIP_PATH "$BUILD_DIR/$VENDORED_GEOIP/share/"
 echo "       GeoIP City Database is available via env in \$GEOIP_PATH"
