@@ -9,9 +9,9 @@ set-env() {
   echo "export $1=$2" >> $PROFILE_PATH
 }
 
-GEOIP_VERSION = "1.6.0"
+GEOIP_VERSION="1.6.0"
 
-VENDORED_GEOIP = "vendor/geoip/1.6.0"
+VENDORED_GEOIP="vendor/geoip/1.6.0"
 APP_GEOIP="/app/$VENDORED_GEOIP"
 
 # Maxmind GeoIP C library
@@ -48,5 +48,5 @@ set-env LIBRARY_PATH "\$LIBRARY_PATH:$APP_GEOIP/lib"
 set-env LD_LIBRARY_PATH "\$LD_LIBRARY_PATH:$APP_GEOIP/lib"
 set-env CPATH "\$CPATH:$APP_GEOIP/include"
 
-set-env GEOIP_PATH "$BUILD_DIR/$VENDORED_GEOIP/share/"
+set-env GEOIP_PATH "$APP_GEOIP/share/"
 echo "       GeoIP City Database is available via env in \$GEOIP_PATH"
