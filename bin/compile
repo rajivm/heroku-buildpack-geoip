@@ -23,30 +23,30 @@ GEOLITECITY_URL="http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.
 GEOLITECITY_FILE="GeoLiteCity.dat"
 
 
-echo "-----> Installing Maxmind GeoIP C Library $GEOIP_VERSION"
+#echo "-----> Installing Maxmind GeoIP C Library $GEOIP_VERSION"
 if [ ! -d "$CACHE_DIR/.geoip/$GEOIP_VERSION" ]; then
-    mkdir -p $CACHE_DIR/.geoip
+    mkdir -p $CACHE_DIR/.geoip/$GEOIP_VERSION
 fi
 
-cd $CACHE_DIR/.geoip
+cd $CACHE_DIR/.geoip/$GEOIP_VERSION
 
-curl -s -L -o geoip.tar.gz $GEOIP_DIST_URL
-tar -zxvf geoip.tar.gz > /dev/null
-cd $GEOIP_DIST_DIR
-./configure --prefix="$APP_GEOIP" > /dev/null
-make install --prefix="$BUILD_DIR/$VENDORED_GEOIP" > /dev/null
+#curl -s -L -o geoip.tar.gz $GEOIP_DIST_URL
+#tar -zxvf geoip.tar.gz > /dev/null
+#cd $GEOIP_DIST_DIR
+#./configure --prefix="$APP_GEOIP" > /dev/null
+#make install --prefix="$BUILD_DIR/$VENDORED_GEOIP" > /dev/null
 
-cd $BUILD_DIR
+cd $CACHE_DIR/.geoip/
 if [ ! -f $GEOLITECITY_FILE ]; then
     curl -s -L -o ${GEOLITECITY_FILE}.gz $GEOLITECITY_URL
     gunzip ${GEOLITECITY_FILE}.gz > /dev/null
-    mkdir -p "$BUILD_DIR/$VENDORED_GEOIP/share/"
-    mv $GEOLITECITY_FILE "$BUILD_DIR/$VENDORED_GEOIP/share/$GEOLITECITY_FILE"
 fi
+mkdir -p "$BUILD_DIR/$VENDORED_GEOIP/share/"
+cp $GEOLITECITY_FILE "$BUILD_DIR/$VENDORED_GEOIP/share/$GEOLITECITY_FILE"
 
-set-env LIBRARY_PATH "\$LIBRARY_PATH:$APP_GEOIP/lib"
-set-env LD_LIBRARY_PATH "\$LD_LIBRARY_PATH:$APP_GEOIP/lib"
-set-env CPATH "\$CPATH:$APP_GEOIP/include"
+#set-env LIBRARY_PATH "\$LIBRARY_PATH:$APP_GEOIP/lib"
+#set-env LD_LIBRARY_PATH "\$LD_LIBRARY_PATH:$APP_GEOIP/lib"
+#set-env CPATH "\$CPATH:$APP_GEOIP/include"
 
 set-env GEOIP_PATH "$APP_GEOIP/share/"
 echo "       GeoIP City Database is available via env in \$GEOIP_PATH"
