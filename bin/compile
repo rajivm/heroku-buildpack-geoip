@@ -45,6 +45,6 @@ fi
 
 GEOCITY_LITE_PATH="$(pwd)/${GEOLITECITY_PATH}"
 
-set-env "GEOCITY_LITE_PATH", GEOCITY_LITE_PATH
+set-env "GEOCITY_LITE_PATH" $GEOCITY_LITE_PATH
 
-puts "GeoIP City Database is available at:${GEOLITECITY_PATH}"
+puts "GeoIP City Database is available at:${GEOCITY_LITE_PATH}"
