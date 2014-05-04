@@ -43,7 +43,7 @@ if [ ! -f $GEOLITECITY_FILE ]; then
     gunzip ${GEOLITECITY_FILE}.gz > /dev/null
 fi
 
-GEOCITY_LITE_PATH="$(pwd)/${GEOLITECITY_PATH}"
+GEOCITY_LITE_PATH="$(pwd)/${GEOLITECITY_FILE}"
 
 set-env "GEOCITY_LITE_PATH" $GEOCITY_LITE_PATH
 
