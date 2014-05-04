@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
+# grab environment args
 BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_FILE=$3
+
+# Paths.
+BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
+ROOT_DIR=$(dirname $BIN_DIR)
 
 # Syntax sugar.
 source $BIN_DIR/utils
