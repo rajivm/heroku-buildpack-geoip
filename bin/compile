@@ -9,7 +9,7 @@ set-env() {
   echo "export $1=$2" >> $PROFILE_PATH
 }
 
-GEOIP_VERSION="1.6.0"
+GEOIP_VERSION="1.6.9"
 
 VENDORED_GEOIP="vendor/geoip/1.6.0"
 APP_GEOIP="/app/$VENDORED_GEOIP"
