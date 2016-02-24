@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 # always install
+echo "GeoIP"
 exit 0
