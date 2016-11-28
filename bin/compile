@@ -12,9 +12,9 @@ ROOT_DIR=$(dirname $BIN_DIR)
 # Syntax sugar.
 source $BIN_DIR/utils
 
-GEOIP_VERSION="1.6.5"
+GEOIP_VERSION="1.6.9"
 
-VENDORED_GEOIP="vendor/geoip/1.6.5"
+VENDORED_GEOIP="vendor/geoip/1.6.9"
 APP_GEOIP="/app/$VENDORED_GEOIP"
 
 # Maxmind GeoIP C library
